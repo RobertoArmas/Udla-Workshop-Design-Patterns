@@ -1,13 +1,15 @@
+import { MemoryDatabase } from "../database/memory";
 import { Vehicle } from "../types/vehicle";
 
 export class VehicleService {
+  private memoryDb = MemoryDatabase.instance;
 
   all(): Vehicle[]{
-    throw new Error("Method not implemented.");
+    return this.memoryDb.vehicles;
   }
 
   add(vehicle: Vehicle): void {
-    throw new Error("Method not implemented.");
+    this.memoryDb.vehicles.push(vehicle); 
   }
   
 }
